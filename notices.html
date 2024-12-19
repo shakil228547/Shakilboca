@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chindhukuria Digital Coaching</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            background: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form input, form textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 10px 20px;
+            color: white;
+            background: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Chindhukuria Digital Coaching</h1>
+</header>
+
+<section id="admission-form">
+    <h2>ভর্তি ফর্ম</h2>
+    <form>
+        <label for="name">নাম:</label>
+        <input type="text" id="name" name="name" placeholder="আপনার নাম লিখুন" required>
+        
+        <label for="class">ক্লাস:</label>
+        <input type="text" id="class" name="class" placeholder="আপনার ক্লাস লিখুন" required>
+        
+        <label for="phone">ফোন নম্বর:</label>
+        <input type="tel" id="phone" name="phone" placeholder="ফোন নম্বর লিখুন" required>
+        
+        <label for="address">ঠিকানা:</label>
+        <textarea id="address" name="address" rows="3" placeholder="আপনার ঠিকানা লিখুন"></textarea>
+        
+        <button type="submit">জমা দিন</button>
+    </form>
+</section>
+
+<section id="details">
+    <h2>কোচিং-এর বিস্তারিত</h2>
+    <p>আমাদের কোচিং সেন্টারে ক্লাস ৩ থেকে ৯ পর্যন্ত সকল বিষয়ের জন্য বিশেষ শিক্ষার ব্যবস্থা রয়েছে। বিজ্ঞান ও গণিত সহজভাবে বোঝানোর পাশাপাশি স্মার্ট নোট এবং সাপ্তাহিক পরীক্ষার ব্যবস্থা রয়েছে।</p>
+</section>
+
+<section id="notices">
+    <h2>নোটিস বোর্ড</h2>
+    <p>- ভর্তি প্রক্রিয়া শুরু হয়েছে।</p>
+    <p>- ক্লাস শুরু: ১ জানুয়ারি থেকে।</p>
+    <p>- সাপ্তাহিক পরীক্ষার তারিখ: প্রতি শুক্রবার।</p>
+</section>
+
+<section id="feedback">
+    <h2>ফিডব্যাক</h2>
+    <form>
+        <label for="feedback">আপনার মতামত:</label>
+        <textarea id="feedback" name="feedback" rows="5" placeholder="আপনার মতামত লিখুন"></textarea>
+        <button type="submit">জমা দিন</button>
+    </form>
+</section>
+
+</body>
+</html>
