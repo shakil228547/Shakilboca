@@ -161,7 +161,7 @@
 
     <div class="payment-options">
         <div class="payment-option">
-            <img src="https://images.app.goo.gl/mxtEERha8w6MrLS8A" alt="বিকাশ" class="payment-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/BKash_logo.svg" alt="বিকাশ" class="payment-logo">
             <p>বিকাশ: 01785228547</p>
         </div>
         <div class="payment-option">
@@ -175,9 +175,39 @@
     </div>
 </section>
 
+<!-- Payment Details & PDF Generation Section -->
+<section id="payment-details">
+    <h2>পেমেন্ট তথ্য</h2>
+    <form id="paymentForm">
+        <label for="payerName">নাম:</label>
+        <input type="text" id="payerName" placeholder="আপনার নাম লিখুন" required>
+
+        <label for="fatherName">বাবার নাম:</label>
+        <input type="text" id="fatherName" placeholder="আপনার বাবার নাম লিখুন" required>
+
+        <label for="village">গ্রাম:</label>
+        <input type="text" id="village" placeholder="গ্রামের নাম লিখুন" required>
+
+        <label for="paymentHistory">পেমেন্ট হিস্ট্রি:</label>
+        <input type="text" id="paymentHistory" placeholder="পেমেন্টের বিস্তারিত লিখুন" required>
+
+        <label for="paymentDate">তারিখ:</label>
+        <input type="date" id="paymentDate" required>
+
+        <button type="submit">পিডিএফ তৈরি করুন</button>
+    </form>
+
+    <div id="pdfOutput" style="display:none; margin-top: 20px;">
+        <h3>পিডিএফ আউটপুট</h3>
+        <p id="pdfContent"></p>
+    </div>
+</section>
+
 <footer>
     © 2024 Chindhukuria Digital Coaching. সকল অধিকার সংরক্ষিত।
 </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script>
     // Admission Form Submission
@@ -191,7 +221,6 @@
     admissionForm.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Store the form data in localStorage
         const formData = {
             name: nameInput.value,
             class: classInput.value,
@@ -199,17 +228,12 @@
             address: addressInput.value
         };
 
-        // Save to localStorage
         localStorage.setItem('admissionFormData', JSON.stringify(formData));
 
-        // Show the thank you message
         thankYouMessage.style.display = 'block';
-
-        // Clear form fields
         admissionForm.reset();
     });
 
-    // Check if there's already saved data
     const savedData = localStorage.getItem('admissionFormData');
     if (savedData) {
         const parsedData = JSON.parse(savedData);
@@ -218,7 +242,6 @@
         phoneInput.value = parsedData.phone;
         addressInput.value = parsedData.address;
     }
-</script>
 
-</body>
-</html>
+    // Payment Details Form
+    const paymentForm = document.getElementById('paymentForm');
