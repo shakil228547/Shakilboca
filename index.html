@@ -3,109 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chindhukuria Digital Coaching</title>
+    <title>CHINADHUKURIYA DIGITAL COACHING</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: #f9f9f9;
+            background-color: #f4f4f9;
         }
+
         header {
-            background: #4CAF50;
-            color: white;
+            background-color: #4CAF50; /* সবুজ রঙ */
+            color: #fff;
             padding: 10px 20px;
-            text-align: center;
-        }
-        nav {
             display: flex;
-            justify-content: center;
-            background: #333;
+            justify-content: space-between;
+            align-items: center;
         }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 15px 20px;
+
+        .logo {
+            text-align: left;
+        }
+
+        .logo h1 {
+            font-size: 22px;
+            margin: 0;
+        }
+
+        .logo p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .menu-icon {
             display: block;
-        }
-        nav a:hover {
-            background: #4CAF50;
-        }
-        section {
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        h2 {
-            color: #333;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+            background-color: #4CAF50;
+            padding: 10px;
             text-align: center;
+            border-radius: 5px;
         }
-        .form-link {
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            flex-direction: column;
+            background-color: #4CAF50;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            border-radius: 5px;
+        }
+
+        nav ul li {
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid #fff;
+        }
+
+        nav ul.show {
             display: flex;
-            justify-content: center;
+        }
+
+        .center-button {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .center-button h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .center-button a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #FF5722; /* লাল রঙ */
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .center-button a:hover {
+            background-color: #E64A19;
+        }
+
+        .contact {
+            text-align: center;
             margin-top: 20px;
         }
-        .form-button {
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        .form-button:hover {
-            background-color: #45a049;
-        }
+
         footer {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-            padding: 10px;
-            background: #333;
-            color: white;
+            padding: 10px 0;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Chindhukuria Digital Coaching</h1>
-</header>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>CHINADHUKURIYA DIGITAL COACHING</h1>
+            <p>Empowering Education, Shaping Future</p>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <nav>
+            <ul id="menu">
+                <li><a href="#home">হোম</a></li>
+                <li><a href="#about">আমাদের সম্পর্কে</a></li>
+                <li><a href="notice.html">নোটিশ</a></li>
+                <li><a href="https://forms.gle/aJVpPJ486REBvkA18">পরীক্ষা</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<nav>
-    <a href="#admission-form">ভর্তি ফর্ম</a>
-    <a href="#details">কোচিং-এর তথ্য</a>
-    <a href="#notices">নোটিস বোর্ড</a>
-</nav>
-
-<!-- Admission Form Section -->
-<section id="admission-form">
-    <h2>ভর্তি ফর্ম</h2>
-    <p>ভর্তির জন্য নিচের বোতামে ক্লিক করুন:</p>
-    <div class="form-link">
-        <a class="form-button" href="https://forms.gle/nV6H4RXy8b2xZJGcA" target="_blank">ভর্তির ফর্ম পূরণ করুন</a>
+    <!-- Center Admission Button -->
+    <div class="center-button">
+        <h2>এখনই ভর্তি হতে ক্লিক করুন</h2>
+        <a href="https://forms.gle/nV6H4RXy8b2xZJGcA">ভর্তি করুন</a>
     </div>
-</section>
 
-<!-- Details Section -->
-<section id="details">
-    <h2>কোচিং-এর বিস্তারিত</h2>
-    <p>আমাদের কোচিং সেন্টারে ক্লাস ৩ থেকে ৯ পর্যন্ত সকল বিষয়ের জন্য বিশেষ শিক্ষার ব্যবস্থা রয়েছে। বিজ্ঞান ও গণিত সহজভাবে বোঝানোর পাশাপাশি স্মার্ট নোট এবং সাপ্তাহিক পরীক্ষার ব্যবস্থা রয়েছে।</p>
-</section>
+    <!-- Contact Section -->
+    <div class="contact">
+        <h2>যোগাযোগ করুন</h2>
+        <p>ফোন: <strong>01785228547</strong></p>
+        <p>ইমেইল: <strong>shakilahmedvir@gmail.com</strong></p>
+    </div>
 
-<!-- Notices Section -->
-<section id="notices">
-    <h2>নোটিস বোর্ড</h2>
-    <p>- ভর্তি প্রক্রিয়া শুরু হয়েছে।</p>
-    <p>- ক্লাস শুরু: ১ জানুয়ারি থেকে।</p>
-    <p>- সাপ্তাহিক পরীক্ষার তারিখ: প্রতি শুক্রবার।</p>
-</section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Chinadhukuriya Digital Coaching. All Rights Reserved.</p>
+    </footer>
 
-<footer>
-    © 2024 Chindhukuria Digital Coaching. সকল অধিকার সংরক্ষিত।
-</footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+    </script>
 
 </body>
 </html>
