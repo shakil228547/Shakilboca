@@ -103,78 +103,27 @@
 
 <!-- Admission Form Section -->
 <section id="admission-form">
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chindhukuria Digital Coaching</title>
-</head>
-<body>
-    <header>
-        <h1>Chindhukuria Digital Coaching</h1>
-    </header>
+    <h2>ভর্তি ফর্ম</h2>
+    <form id="admissionForm">
+        <label for="name">নাম:</label>
+        <input type="text" id="name" name="name" placeholder="আপনার নাম লিখুন" required>
 
-    <section id="admission-form">
-        <h2>ভর্তি ফর্ম</h2>
-        <form id="admissionForm">
-            <label for="name">নাম:</label>
-            <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
+        <label for="class">ক্লাস:</label>
+        <input type="text" id="class" name="class" placeholder="আপনার ক্লাস লিখুন" required>
 
-            <label for="class">ক্লাস:</label>
-            <input type="text" id="class" placeholder="আপনার ক্লাস লিখুন" required>
+        <label for="phone">ফোন নম্বর:</label>
+        <input type="tel" id="phone" name="phone" placeholder="ফোন নম্বর লিখুন" required>
 
-            <button type="submit">জমা দিন</button>
-        </form>
+        <label for="address">ঠিকানা:</label>
+        <textarea id="address" name="address" rows="3" placeholder="আপনার ঠিকানা লিখুন"></textarea>
 
-        <p id="successMessage" style="color: green; display: none;">তথ্য সফলভাবে জমা হয়েছে!</p>
-    </section>
+        <button type="submit">জমা দিন</button>
+    </form>
 
-    <!-- Firebase Scripts -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
-    <script>
-        // **Firebase Configuration**
-        const firebaseConfig = {
-            apiKey: "your-api-key",
-            authDomain: "your-project-id.firebaseapp.com",
-            databaseURL: "https://your-project-id.firebaseio.com",
-            projectId: "your-project-id",
-            storageBucket: "your-project-id.appspot.com",
-            messagingSenderId: "your-sender-id",
-            appId: "your-app-id"
-        };
-
-        // **Initialize Firebase**
-        const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
-        // **Form Submission Event**
-        const form = document.getElementById('admissionForm');
-        const successMessage = document.getElementById('successMessage');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Prevent default form submission
-
-            const name = document.getElementById('name').value;
-            const studentClass = document.getElementById('class').value;
-
-            // Save data to Firebase
-            firebase.database().ref('students').push({
-                name: name,
-                class: studentClass,
-                date: new Date().toLocaleString() // Add date for reference
-            });
-
-            // Show success message
-            successMessage.style.display = 'block';
-
-            // Reset form
-            form.reset();
-        });
-    </script>
-</body>
-</html>
+    <div id="thankYouMessage" style="display:none; text-align: center; margin-top: 20px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
+        <p>ধন্যবাদ! আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে।</p>
+    </div>
+</section>
 
 <!-- Exam Results Section -->
 <section id="exam-results">
@@ -226,73 +175,31 @@
     </div>
 </section>
 
-<!-- Payment Details & PDF Generation Section -->
-<section id="payment-details">
-    <h2>পেমেন্ট তথ্য</h2>
-    <form id="paymentForm">
-        <label for="payerName">নাম:</label>
-        <input type="text" id="payerName" placeholder="আপনার নাম লিখুন" required>
-
-        <label for="fatherName">বাবার নাম:</label>
-        <input type="text" id="fatherName" placeholder="আপনার বাবার নাম লিখুন" required>
-
-        <label for="village">গ্রাম:</label>
-        <input type="text" id="village" placeholder="গ্রামের নাম লিখুন" required>
-
-        <label for="paymentHistory">পেমেন্ট হিস্ট্রি:</label>
-        <input type="text" id="paymentHistory" placeholder="পেমেন্টের বিস্তারিত লিখুন" required>
-
-        <label for="paymentDate">তারিখ:</label>
-        <input type="date" id="paymentDate" required>
-
-        <button type="submit">পিডিএফ তৈরি করুন</button>
-    </form>
-
-    <div id="pdfOutput" style="display:none; margin-top: 20px;">
-        <h3>পিডিএফ আউটপুট</h3>
-        <p id="pdfContent"></p>
-    </div>
-</section>
-
 <footer>
     © 2024 Chindhukuria Digital Coaching. সকল অধিকার সংরক্ষিত।
 </footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 <script>
     // Admission Form Submission
     const admissionForm = document.getElementById('admissionForm');
     const thankYouMessage = document.getElementById('thankYouMessage');
-    const nameInput = document.getElementById('name');
-    const classInput = document.getElementById('class');
-    const phoneInput = document.getElementById('phone');
-    const addressInput = document.getElementById('address');
-
     admissionForm.addEventListener('submit', function(event) {
         event.preventDefault();
-
-        const formData = {
-            name: nameInput.value,
-            class: classInput.value,
-            phone: phoneInput.value,
-            address: addressInput.value
-        };
-
-        localStorage.setItem('admissionFormData', JSON.stringify(formData));
-
         thankYouMessage.style.display = 'block';
         admissionForm.reset();
     });
 
-    const savedData = localStorage.getItem('admissionFormData');
-    if (savedData) {
-        const parsedData = JSON.parse(savedData);
-        nameInput.value = parsedData.name;
-        classInput.value = parsedData.class;
-        phoneInput.value = parsedData.phone;
-        addressInput.value = parsedData.address;
-    }
-
-    // Payment Details Form
+    // Payment Details PDF Generation
     const paymentForm = document.getElementById('paymentForm');
+    paymentForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text("পেমেন্ট ডিটেলস", 10, 10);
+        doc.save("payment-details.pdf");
+    });
+</script>
+
+</body>
+</html>
