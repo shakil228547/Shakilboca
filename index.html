@@ -103,27 +103,78 @@
 
 <!-- Admission Form Section -->
 <section id="admission-form">
-    <h2>ভর্তি ফর্ম</h2>
-    <form id="admissionForm">
-        <label for="name">নাম:</label>
-        <input type="text" id="name" name="name" placeholder="আপনার নাম লিখুন" required>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chindhukuria Digital Coaching</title>
+</head>
+<body>
+    <header>
+        <h1>Chindhukuria Digital Coaching</h1>
+    </header>
 
-        <label for="class">ক্লাস:</label>
-        <input type="text" id="class" name="class" placeholder="আপনার ক্লাস লিখুন" required>
+    <section id="admission-form">
+        <h2>ভর্তি ফর্ম</h2>
+        <form id="admissionForm">
+            <label for="name">নাম:</label>
+            <input type="text" id="name" placeholder="আপনার নাম লিখুন" required>
 
-        <label for="phone">ফোন নম্বর:</label>
-        <input type="tel" id="phone" name="phone" placeholder="ফোন নম্বর লিখুন" required>
+            <label for="class">ক্লাস:</label>
+            <input type="text" id="class" placeholder="আপনার ক্লাস লিখুন" required>
 
-        <label for="address">ঠিকানা:</label>
-        <textarea id="address" name="address" rows="3" placeholder="আপনার ঠিকানা লিখুন"></textarea>
+            <button type="submit">জমা দিন</button>
+        </form>
 
-        <button type="submit">জমা দিন</button>
-    </form>
+        <p id="successMessage" style="color: green; display: none;">তথ্য সফলভাবে জমা হয়েছে!</p>
+    </section>
 
-    <div id="thankYouMessage" style="display:none; text-align: center; margin-top: 20px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
-        <p>ধন্যবাদ! আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে।</p>
-    </div>
-</section>
+    <!-- Firebase Scripts -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
+    <script>
+        // **Firebase Configuration**
+        const firebaseConfig = {
+            apiKey: "your-api-key",
+            authDomain: "your-project-id.firebaseapp.com",
+            databaseURL: "https://your-project-id.firebaseio.com",
+            projectId: "your-project-id",
+            storageBucket: "your-project-id.appspot.com",
+            messagingSenderId: "your-sender-id",
+            appId: "your-app-id"
+        };
+
+        // **Initialize Firebase**
+        const app = firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // **Form Submission Event**
+        const form = document.getElementById('admissionForm');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const name = document.getElementById('name').value;
+            const studentClass = document.getElementById('class').value;
+
+            // Save data to Firebase
+            firebase.database().ref('students').push({
+                name: name,
+                class: studentClass,
+                date: new Date().toLocaleString() // Add date for reference
+            });
+
+            // Show success message
+            successMessage.style.display = 'block';
+
+            // Reset form
+            form.reset();
+        });
+    </script>
+</body>
+</html>
 
 <!-- Exam Results Section -->
 <section id="exam-results">
