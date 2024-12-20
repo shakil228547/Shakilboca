@@ -59,7 +59,23 @@
             padding: 50px 0;
         }
 
-        .features, .contact {
+        .btn-red {
+            background-color: red;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .btn-red:hover {
+            background-color: darkred;
+        }
+
+        .features {
             text-align: center;
             padding: 50px 20px;
         }
@@ -86,36 +102,21 @@
             text-align: center;
         }
 
-        .btn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 32px;
+        .about-section {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
+        }
+
+        .about-section h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .about-section p {
             font-size: 18px;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background-color: #45a049;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            font-size: 20px;
-            margin: 20px 0;
-        }
-
-        .contact-info a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-size: 20px;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
+            color: #333;
+            line-height: 1.8;
         }
     </style>
 </head>
@@ -130,11 +131,11 @@
     <!-- Navigation -->
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="notice.html">Notice</a></li>
-            <li><a href="exam.html">Exam</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">আমাদের সম্পর্কে</a></li>
+            <li><a href="https://shakil00vir.github.io/shakilp/" target="_blank">নোটিস</a></li>
+            <li><a href="https://forms.gle/aJVpPJ486REBvkA18" target="_blank">পরীক্ষা</a></li>
+            <li><a href="#contact">যোগাযোগ</a></li>
         </ul>
     </nav>
 
@@ -142,17 +143,28 @@
     <section class="banner">
         <h2>Welcome to Chinadukhuria Digital Coaching</h2>
         <p>Providing Quality Education for All</p>
-        <a href="https://forms.gle/oQjvv8D4rFLDZrmcA" class="btn">ভর্তি করুন</a>
+        <a href="https://forms.gle/oQjvv8D4rFLDZrmcA" class="btn-red">ভর্তি করুন</a>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+        <h2>আমাদের সম্পর্কে</h2>
+        <p>
+            চিনাধুকুরিয়া ডিজিটাল কোচিং এমন একটি প্রতিষ্ঠান যেখানে মানসম্মত শিক্ষার মাধ্যমে শিক্ষার্থীদের জীবনের প্রতিটি ক্ষেত্রে সফলতা অর্জনে সাহায্য করা হয়। 
+            আমাদের অভিজ্ঞ শিক্ষক মণ্ডলী অত্যন্ত যত্নের সাথে শিক্ষার্থীদের প্রয়োজনীয় জ্ঞান ও দক্ষতা প্রদান করেন। 
+            আমরা বিজ্ঞান, গণিত, এবং ইংরেজি বিষয়ের উপর বিশেষ জোর দিই এবং দুর্বল শিক্ষার্থীদের প্রতি আলাদা যত্নশীল মনোভাব পোষণ করি।
+            <br><br>
+            আমাদের লক্ষ্য শিক্ষার্থীদের শুধু পরীক্ষার জন্য প্রস্তুত করা নয়, বরং তাদেরকে ভবিষ্যৎ জীবনের জন্য দক্ষ ও আত্মবিশ্বাসী মানুষ হিসেবে গড়ে তোলা। 
+            আধুনিক প্রযুক্তি এবং মাল্টিমিডিয়া ব্যবহার করে আমরা শিক্ষাকে আরও আনন্দদায়ক এবং কার্যকরী করে তুলি।
+        </p>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section id="contact">
         <h2>যোগাযোগ</h2>
-        <div class="contact-info">
-            <p><strong>ফোন নম্বর:</strong> <a href="tel:+8801785228547">01785228547</a></p>
-            <p><strong>ইমেইল:</strong> <a href="mailto:shakilahmedvir@gmail.com">shakilahmedvir@gmail.com</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/8801785228547" target="_blank">Click to chat on WhatsApp</a></p>
-        </div>
+        <p><strong>ফোন:</strong> <a href="tel:+8801785228547">01785228547</a></p>
+        <p><strong>ইমেইল:</strong> <a href="mailto:shakilahmedvir@gmail.com">shakilahmedvir@gmail.com</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/8801785228547" target="_blank">Chat on WhatsApp</a></p>
     </section>
 
     <!-- Footer Section -->
