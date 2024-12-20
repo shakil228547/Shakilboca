@@ -43,41 +43,22 @@
             color: #333;
             text-align: center;
         }
-        form {
+        .form-link {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        form input, form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        form button {
-            padding: 10px;
-            background: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        form button:hover {
-            background: #45a049;
-        }
-        .payment-options {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            gap: 20px;
+            justify-content: center;
             margin-top: 20px;
         }
-        .payment-option {
-            text-align: center;
+        .form-button {
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        .payment-logo {
-            max-width: 150px;
-            margin-bottom: 10px;
+        .form-button:hover {
+            background-color: #45a049;
         }
         footer {
             text-align: center;
@@ -95,48 +76,16 @@
 
 <nav>
     <a href="#admission-form">ভর্তি ফর্ম</a>
-    <a href="#exam-results">ফলাফল দেখুন</a>
     <a href="#details">কোচিং-এর তথ্য</a>
     <a href="#notices">নোটিস বোর্ড</a>
-    <a href="#payment">পেমেন্ট</a>
 </nav>
 
 <!-- Admission Form Section -->
 <section id="admission-form">
     <h2>ভর্তি ফর্ম</h2>
-    <form id="admissionForm">
-        <label for="name">নাম:</label>
-        <input type="text" id="name" name="name" placeholder="আপনার নাম লিখুন" required>
-
-        <label for="class">ক্লাস:</label>
-        <input type="text" id="class" name="class" placeholder="আপনার ক্লাস লিখুন" required>
-
-        <label for="phone">ফোন নম্বর:</label>
-        <input type="tel" id="phone" name="phone" placeholder="ফোন নম্বর লিখুন" required>
-
-        <label for="address">ঠিকানা:</label>
-        <textarea id="address" name="address" rows="3" placeholder="আপনার ঠিকানা লিখুন"></textarea>
-
-        <button type="submit">জমা দিন</button>
-    </form>
-
-    <div id="thankYouMessage" style="display:none; text-align: center; margin-top: 20px; background-color: #4CAF50; color: white; padding: 15px; border-radius: 5px;">
-        <p>ধন্যবাদ! আপনার ভর্তি ফর্ম সফলভাবে জমা হয়েছে।</p>
-    </div>
-</section>
-
-<!-- Exam Results Section -->
-<section id="exam-results">
-    <h2>পরীক্ষার ফলাফল দেখুন</h2>
-    <form id="resultForm">
-        <label for="rollNumber">রোল নম্বর:</label>
-        <input type="text" id="rollNumber" placeholder="আপনার রোল নম্বর লিখুন" required>
-        <button type="submit">ফলাফল দেখুন</button>
-    </form>
-
-    <div id="resultContainer" class="result-container">
-        <div id="studentInfo" class="student-info"></div>
-        <div id="result" class="result"></div>
+    <p>ভর্তির জন্য নিচের বোতামে ক্লিক করুন:</p>
+    <div class="form-link">
+        <a class="form-button" href="https://forms.gle/nV6H4RXy8b2xZJGcA" target="_blank">ভর্তির ফর্ম পূরণ করুন</a>
     </div>
 </section>
 
@@ -154,52 +103,9 @@
     <p>- সাপ্তাহিক পরীক্ষার তারিখ: প্রতি শুক্রবার।</p>
 </section>
 
-<!-- Payment Section -->
-<section id="payment">
-    <h2>পেমেন্ট অপশন</h2>
-    <p>নিচে উল্লেখিত পেমেন্ট অপশনগুলোর মাধ্যমে আপনি পেমেন্ট করতে পারবেন:</p>
-
-    <div class="payment-options">
-        <div class="payment-option">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/BKash_logo.svg" alt="বিকাশ" class="payment-logo">
-            <p>বিকাশ: 01785228547</p>
-        </div>
-        <div class="payment-option">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Nagad_Logo.svg/800px-Nagad_Logo.svg.png" alt="নগদ" class="payment-logo">
-            <p>নগদ: 01785228547</p>
-        </div>
-        <div class="payment-option">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Islami_Bank_Bangladesh_logo.svg/1200px-Islami_Bank_Bangladesh_logo.svg.png" alt="ইসলামী ব্যাংক" class="payment-logo">
-            <p>ইসলামী ব্যাংক: [ব্যাংক অ্যাকাউন্ট নম্বর]</p>
-        </div>
-    </div>
-</section>
-
 <footer>
     © 2024 Chindhukuria Digital Coaching. সকল অধিকার সংরক্ষিত।
 </footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script>
-    // Admission Form Submission
-    const admissionForm = document.getElementById('admissionForm');
-    const thankYouMessage = document.getElementById('thankYouMessage');
-    admissionForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        thankYouMessage.style.display = 'block';
-        admissionForm.reset();
-    });
-
-    // Payment Details PDF Generation
-    const paymentForm = document.getElementById('paymentForm');
-    paymentForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.text("পেমেন্ট ডিটেলস", 10, 10);
-        doc.save("payment-details.pdf");
-    });
-</script>
 
 </body>
 </html>
